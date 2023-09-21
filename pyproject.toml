@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "deequ"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pydeequ = "^1.1.1"
+pyspark = {version = "3.3.0", extras = ["sql"]} # deequ officially supports max 3.3.0
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+pre-commit = "^3.4.0"
+pytest-env = "^1.0.1"
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
+env = ["SPARK_VERSION=3.3"]  # needed for deequ
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
